@@ -17,7 +17,10 @@ app.use(express.static(path.join(__dirname, "/../front")));  // SNOW/GEO/front �
 //fetch 是一個網路請求函式，用來對外部伺服器（例如 API）送出請求（GET、POST 等），然後取得回應。
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
-const PORT = 8080;
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 
 app.get('/static/css/main.css', (req, res) => {
   res.sendFile(__dirname + '/static/css/main.css');
