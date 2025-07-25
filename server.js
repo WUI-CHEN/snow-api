@@ -23,7 +23,7 @@ if (!PORT) {
   throw new Error("PORT not defined in environment.");
 }
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on port ${PORT}`);
 });
 
